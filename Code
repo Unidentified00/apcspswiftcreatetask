@@ -1,0 +1,90 @@
+    func yoda(input: String) {
+        // List of objects, subjects and verbs
+        
+        //split lists into arrays
+        let nounArray = nouns.split(separator: " ")
+        let adjectiveArray = adjective.split(separator: " ")
+        let verbArray = verbs.split(separator: " ")
+        let adverbArray = adverb.split(separator: " ")
+        let pronounArray = pronoun.split(separator: " ")
+        let conjunctionArray = conjunction.split(separator: " ")
+        // declaration of variables
+        var numNouns = 0
+        var numAdjectives = 0
+        var numVerbs = 0
+        var numWords = 0
+        var numAdverbs = 0
+        var numPronouns = 0
+        var numConjugates = 0
+        let input = input.lowercased()
+        let array = input.split(separator: " " )
+        // Checks if each word in input string matches to a object, subject, or verb
+        for word in array {
+            if word.contains("'"){
+                numPronouns += 1
+            }
+            if nounArray.contains(word) {
+                numNouns += 1
+                }
+            else if adjectiveArray.contains(word) {
+                numAdjectives += 1
+            }
+            else if verbArray.contains(word) {
+                numVerbs += 1
+            }
+            else if adverbArray.contains(word) {
+               numAdverbs += 1
+            }
+            else if pronounArray.contains(word) {
+                numPronouns += 1
+                       }
+            else if conjunctionArray.contains(word) {
+                numConjugates += 1
+                       }
+            numWords += 1
+        }
+        // changes to singular if num of type equals 1
+        var verbS = "verbs"
+        if numVerbs == 1 {
+            verbS = "verb"
+        }
+        var nounS = "objects"
+        if numNouns == 1 {
+            nounS = "object"
+        }
+        var adjectiveS = "adjectives"
+        if numAdjectives == 1 {
+            adjectiveS = "adjective"
+        }
+        var adverbS = "adverbs"
+        if numAdverbs == 1 {
+            adverbS = "adverb"
+        }
+        var pronounS = "pronouns"
+               if numPronouns == 1 {
+                   pronounS = "pronoun"
+        }
+        var conjugateS = "conjugates"
+               if numConjugates == 1 {
+                   conjugateS = "conjuction"
+        }
+        // Check
+        numWords
+        numPronouns
+        numAdverbs
+        numAdjectives
+        numVerbs
+        numConjugates
+        numNouns
+        // checks if number of words in the phrase is equal to the number of counted types of words
+        if numVerbs + numNouns + numAdjectives + numAdverbs + numConjugates + numPronouns == numWords {
+          // print the new output string
+            print("The phrase:  \n\(input) \ncontains \(numVerbs) \(verbS), \(numAdverbs) \(adverbS), \(numNouns) \(nounS), \(numPronouns) \(pronounS), \(numConjugates) \(conjugateS), and \(numAdjectives) \(adjectiveS)")
+        }
+        else {
+            print("LISTS INCOMPLETE")
+        }
+        
+    }
+
+yoda(input: "")
